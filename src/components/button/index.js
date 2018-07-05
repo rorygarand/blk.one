@@ -8,7 +8,7 @@ const Button = ({ disabled, title, onClick }) => {
   const handleClick = !disabled ? onClick : () => {};
 
   return (
-    <Wrapper disabled={disabled} onClick={handleClick}>
+    <Wrapper id="button" disabled={disabled} onClick={handleClick}>
       {title}
     </Wrapper>
   );
