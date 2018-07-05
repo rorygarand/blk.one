@@ -42,6 +42,7 @@ const Wrapper = styled.button`
 
   &:disabled {
     color: ${styles.lightGrey};
+    font-style: italic;
   }
 
   &:focus {
