@@ -34,6 +34,7 @@
       "!src/index.js",
       "!src/registerServiceWorker.js",
       "!src/components/index.js",
+      "!src/utils/index.js",
       "!src/views/index.js"
     ]
   },
