@@ -8,6 +8,11 @@ const styles = {
   header: {
     innerHeight: 48,
     outerHeight: 80
+  },
+
+  // row
+  row: {
+    height: 30
   }
 };
 
