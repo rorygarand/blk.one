@@ -27,6 +27,16 @@
     "prettier": "^1.13.7",
     "react-scripts": "1.1.4"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!<rootDir>/node_modules/",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/components/index.js",
+      "!src/views/index.js"
+    ]
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,json}": [
       "prettier --single-quote --write",
