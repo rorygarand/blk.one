@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 yarn install
 ```
 
+Testing requires watchman (at least on a Mac...)
+
+```sh
+brew install watchman
+```
+
 ## Available Scripts
 In the project directory, you can run:
 
