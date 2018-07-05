@@ -1,5 +1,6 @@
 const styles = {
   // colors
+  almostWhite: '#efefef',
   darkGrey: '#605c6d',
   lightGrey: '#d8d8d8',
 
