@@ -45,6 +45,6 @@ const Section = styled.section`
   height: ${styles.header.outerHeight}px;
   justify-content: center;
   margin: -8px;
-  padding: 8px;
+  padding: 0 8px;
   width: 100%;
 `;
