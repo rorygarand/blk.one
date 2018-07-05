@@ -1,9 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import Main from './index';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Main />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('Main', () => {
+  it('renders without crashing', () => {
+    const component = shallow(<Main />);
+    expect(component.find('#main').exists()).toBe(true);
+  });
 });
