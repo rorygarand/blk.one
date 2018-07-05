@@ -7,16 +7,20 @@ import eos from '../../images/eos.svg';
 import { styles } from '../../utils';
 
 const Header = ({ name }) => (
-  <Section>
+  <Section id="header">
     <Div>
-      <img src={eos} />
+      <img src={eos} alt="logo" />
       {name}
     </Div>
   </Section>
 );
 
+Header.defaultProps = {
+  name: ''
+};
+
 Header.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string
 };
 
 export default Header;
