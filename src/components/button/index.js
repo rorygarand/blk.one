@@ -35,6 +35,7 @@ const Wrapper = styled.button`
   cursor: ${({ disabled }) => (!disabled ? 'pointer' : 'not-allowed')};
   display: block;
   margin: 8px 0;
+  min-height: 30px;
   padding: 0 16px;
   text-decoration: none;
   text-transform: uppercase;
