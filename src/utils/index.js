@@ -1,3 +1,3 @@
-import styles from './styles';
+import styles from './_styles';
 
 export { styles };
