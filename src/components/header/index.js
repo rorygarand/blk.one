@@ -39,6 +39,7 @@ const Div = styled.div`
 
 const Section = styled.section`
   align-items: center;
+  background-color: white;
   border-bottom: 1px solid ${styles.lightGrey};
   display: flex;
   height: ${styles.header.outerHeight}px;
