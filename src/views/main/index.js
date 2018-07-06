@@ -1,32 +1,61 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Header } from '../../components';
+import { Button, Header, Loader } from '../../components';
 import { styles, variables } from '../../utils';
 
 import { getBlocks } from '../../actions/block';
 
+import {
+  blockErrorSelector,
+  blockLoadingSelector
+} from '../../selectors/block';
+
 import banner from '../../images/banner.jpg';
 
 class Main extends Component {
+  static defaultProps = {
+    isError: false,
+    isLoading: true
+  };
+
+  static propTypes = {
+    isError: PropTypes.bool,
+    isLoading: PropTypes.bool,
+    getBlocks: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     this.props.getBlocks();
   }
 
   render() {
+    const { isError, isLoading, getBlocks } = this.props;
     const { Row } = styles;
+
+    const isReady = !isError && !isLoading;
 
     return (
       <View id="main">
         <Header name="EOS User" />
         <Content>
           <Wrapper>
-            <Row height={50}>
+            <Row height={variables.row.large}>
               <span>most recent blocks</span>
-              <Button title="load" />
+              <Button disabled={isLoading} title="load" onClick={getBlocks} />
             </Row>
+            {isLoading && (
+              <Center>
+                <Loader />loading
+              </Center>
+            )}
+            {isError && (
+              <Center>Error retrieving blocks. Please try again later.</Center>
+            )}
+            {isReady && 'ready'}
           </Wrapper>
         </Content>
       </View>
@@ -35,7 +64,9 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => ({
-  test: []
+  test: [],
+  isError: blockErrorSelector(state),
+  isLoading: blockLoadingSelector(state)
 });
 
 const mapDispatchToProps = dispatch =>
@@ -50,6 +81,18 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main);
+
+const Center = styled.div`
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: ${variables.row.large - 20}px;
+`;
 
 const Content = styled.section`
   align-items: center;
@@ -107,4 +150,5 @@ const Wrapper = styled.div`
   box-shadow: ${variables.lightGrey} 0px 0px 1px 0px;
   flex: 0.7;
   min-height: 80%;
+  position: relative;
 `;
