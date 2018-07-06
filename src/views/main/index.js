@@ -9,7 +9,9 @@ import { styles, variables } from '../../utils';
 
 import { getBlocks } from '../../actions/block';
 
+import { blocks as blockSchema } from '../../schema/blocks';
 import {
+  blocksSelector,
   blockErrorSelector,
   blockLoadingSelector
 } from '../../selectors/block';
@@ -23,6 +25,7 @@ class Main extends Component {
   };
 
   static propTypes = {
+    blocks: blockSchema,
     isError: PropTypes.bool,
     isLoading: PropTypes.bool,
     getBlocks: PropTypes.func.isRequired
@@ -64,7 +67,7 @@ class Main extends Component {
 }
 
 const mapStateToProps = state => ({
-  test: [],
+  blocks: blocksSelector(state),
   isError: blockErrorSelector(state),
   isLoading: blockLoadingSelector(state)
 });
