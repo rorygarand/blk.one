@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Header, Loader } from '../../components';
+import { Button, Entry, Header, Loader } from '../../components';
 import { styles, variables } from '../../utils';
 
 import { getBlocks } from '../../actions/block';
 
-import { blocks as blockSchema } from '../../schema/blocks';
+import { blocks as blocksSchema } from '../../schema/blocks';
 import {
   blocksSelector,
   blockErrorSelector,
@@ -26,7 +26,7 @@ class Main extends Component {
   };
 
   static propTypes = {
-    blocks: blockSchema,
+    blocks: blocksSchema,
     isError: PropTypes.bool,
     isLoading: PropTypes.bool,
     getBlocks: PropTypes.func.isRequired
@@ -37,7 +37,7 @@ class Main extends Component {
   }
 
   render() {
-    const { isError, isLoading, getBlocks } = this.props;
+    const { blocks, isError, isLoading, getBlocks } = this.props;
     const { Row } = styles;
 
     const isReady = !isError && !isLoading;
@@ -59,7 +59,13 @@ class Main extends Component {
             {isError && (
               <Center>Error retrieving blocks. Please try again later.</Center>
             )}
-            {isReady && 'ready'}
+            {isReady && (
+              <div>
+                {blocks.map((block, i) => (
+                  <Entry key={block.id} block={block} odd={i % 2 === 0} />
+                ))}
+              </div>
+            )}
           </Wrapper>
         </Content>
       </View>
@@ -99,9 +105,10 @@ const Center = styled.div`
 `;
 
 const Content = styled.section`
-  align-items: center;
+  align-items: flex-start;
   bottom: 0;
   display: flex;
+  padding-top: 30px;
   position: absolute;
   overflow: auto;
   justify-content: center;
@@ -152,7 +159,8 @@ const Wrapper = styled.div`
   background-color: white;
   border-radius: 2px;
   box-shadow: ${variables.lightGrey} 0px 0px 1px 0px;
-  flex: 0.7;
-  min-height: 80%;
+  max-width: 1000px;
+  min-height: 300px;
   position: relative;
+  width: 100%;
 `;
