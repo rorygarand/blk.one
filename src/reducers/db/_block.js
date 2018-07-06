@@ -6,12 +6,25 @@ import {
   GET_BLOCKS_SUCCESS
 } from '../../actions/block';
 
-const block = (state = { isLoading: true }, action) => {
+const initialState = {
+  isError: false,
+  isLoading: true
+};
+
+const block = (state = initialState, action) => {
   switch (action.type) {
     case GET_BLOCKS_ERROR:
-      return dotProp.merge(state, 'isLoading', false);
+      const nextState = dotProp.merge(state, 'isError', true);
+      return {
+        nextState,
+        isLoading: false
+      };
     case GET_BLOCKS_LOADING:
-      return dotProp.merge(state, 'isLoading', true);
+      const nextState = dotProp.merge(state, 'isLoading', true);
+      return {
+        nextState,
+        isError: false
+      };
     case GET_BLOCKS_SUCCESS: {
       const nextState = dotProp.merge(state, 'data', action.payload.data);
       return {
