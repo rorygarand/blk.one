@@ -34,7 +34,7 @@
       "!src/index.js",
       "!src/registerServiceWorker.js",
       "!src/components/index.js",
-      "!src/utils/index.js",
+      "!src/utils/*",
       "!src/views/index.js",
       "!src/**/stories.js",
       "!src/**/story.js"
