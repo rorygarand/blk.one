@@ -8,11 +8,16 @@ const Row = styled.div`
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'initial')};
   display: flex;
   flex-direction: row;
-  height: ${({ height }) => height || variables.row.small}px;
+  min-height: ${({ height }) => height || variables.row.small}px;
   justify-content: space-between;
   line-height: ${({ height }) => height || variables.row.small}px;
   padding: 0 8px;
   text-transform: uppercase;
+
+  > pre {
+    background-color: ${({ odd = false }) =>
+      !odd ? variables.almostWhite : '#fff'};
+  }
 `;
 
 export default { Row };
