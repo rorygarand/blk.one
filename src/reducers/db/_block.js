@@ -14,23 +14,23 @@ const initialState = {
 const block = (state = initialState, action) => {
   switch (action.type) {
     case GET_BLOCKS_ERROR: {
-      const nextState = dotProp.merge(state, 'isError', true);
+      const nextState = dotProp.set(state, 'isError', true);
       return {
-        nextState,
+        ...nextState,
         isLoading: false
       };
     }
     case GET_BLOCKS_LOADING: {
-      const nextState = dotProp.merge(state, 'isLoading', true);
+      const nextState = dotProp.set(state, 'isLoading', true);
       return {
-        nextState,
+        ...nextState,
         isError: false
       };
     }
     case GET_BLOCKS_SUCCESS: {
       const nextState = dotProp.merge(state, 'data', action.payload.data);
       return {
-        nextState,
+        ...nextState,
         isLoading: false
       };
     }
