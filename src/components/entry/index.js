@@ -43,7 +43,7 @@ class Entry extends Component {
     const numActions = block.transactions.reduce(this.reducer, 0);
 
     return (
-      <Container onClick={this.handleClick}>
+      <Container id="entry" onClick={this.handleClick}>
         <Row clickable odd={odd}>
           <Col>{block.id}</Col>
           <Col>{moment(block.timestamp).format('MMMM Do, h:mm:ss a')}</Col>
