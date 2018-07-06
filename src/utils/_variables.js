@@ -15,7 +15,7 @@ const variables = {
   // row
   row: {
     large: 50,
-    small: 30
+    small: 40
   }
 };
 
