@@ -11,13 +11,10 @@
     "storybook": "start-storybook -p 9001 -c storybook"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "dot-prop-immutable": "^1.4.0",
     "eosjs": "^15.0.3",
     "lodash.get": "^4.4.2",
-    "lodash.isempty": "^4.4.0",
     "lodash.keyby": "^4.6.0",
-    "lodash.values": "^4.3.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
