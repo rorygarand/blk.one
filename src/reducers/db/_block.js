@@ -1,4 +1,5 @@
 import dotProp from 'dot-prop-immutable';
+import keyBy from 'lodash/keyBy';
 
 import {
   GET_BLOCKS_ERROR,
@@ -7,12 +8,13 @@ import {
 } from '../../actions/block';
 
 const initialState = {
+  byId: {},
   isError: false,
   isLoading: true
 };
 
-const block = (state = initialState, action) => {
-  switch (action.type) {
+const block = (state = initialState, { payload, type }) => {
+  switch (type) {
     case GET_BLOCKS_ERROR: {
       const nextState = dotProp.set(state, 'isError', true);
       return {
@@ -28,9 +30,15 @@ const block = (state = initialState, action) => {
       };
     }
     case GET_BLOCKS_SUCCESS: {
-      const nextState = dotProp.merge(state, 'data', action.payload.data);
+      const byId = {
+        ...state.byId,
+        ...keyBy(payload.data, 'id')
+      };
+      const nextState = dotProp.merge(state, 'byId', byId);
+      const currentIds = payload.data.map(({ id }) => id);
       return {
         ...nextState,
+        currentIds,
         isLoading: false
       };
     }
