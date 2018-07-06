@@ -1,6 +1,5 @@
 import { createSelector } from 'reselect';
 import get from 'lodash/get';
-import values from 'lodash/values';
 
 /**
  * db selectors
