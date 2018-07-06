@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import variables from './_variables';
 
 const Row = styled.div`
+  background-color: ${({ odd = false }) => (odd ? '#efefef' : '#fff')};
   border-bottom: 1px solid ${variables.almostWhite};
   cursor: ${({ clickable }) => (clickable ? 'pointer' : 'initial')};
   display: flex;
