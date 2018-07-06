@@ -1,26 +1,34 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
-import createHistory from 'history/createBrowserHistory';
 
-import {analytics, firebase} from './middleware';
+import { api } from './middleware';
 import reducers from './reducers';
 import sagas from './sagas';
 
 const base = createSagaMiddleware();
-const history = createHistory({ basename: '/' });
 
 const storeInstance = (initialValues = {}) => {
-	const middleware = [base, firebase, analytics, routerMiddleware(history)];
-	const store = createStore(
-		reducers,
-		initialValues,
-		compose(applyMiddleware(...middleware))
-	);
-	base.run(sagas);
+  const middleware = [base, api];
 
-	return store;
+  const devtoolsEnabled = Boolean(
+    process.env.NODE_ENV === 'development' &&
+      global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+  );
+  const reduxDevToolExtConfig = {
+    name: 'blk.one'
+  };
+  const composeEnhancers = devtoolsEnabled
+    ? global.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__(reduxDevToolExtConfig)
+    : compose;
+
+  const store = createStore(
+    reducers,
+    initialValues,
+    composeEnhancers(applyMiddleware(...middleware))
+  );
+  base.run(sagas);
+
+  return store;
 };
 
 export default storeInstance();
-export { storeInstance, history };

@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Button, Header } from '../../components';
 import { styles, variables } from '../../utils';
 
+import { getBlocks } from '../../actions/block';
+
 import banner from '../../images/banner.jpg';
 
 class Main extends Component {
+  componentDidMount() {
+    this.props.getBlocks();
+  }
+
   render() {
     const { Row } = styles;
 
@@ -26,7 +34,22 @@ class Main extends Component {
   }
 }
 
-export default Main;
+const mapStateToProps = state => ({
+  test: []
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      getBlocks
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main);
 
 const Content = styled.section`
   align-items: center;
