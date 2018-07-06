@@ -32,6 +32,15 @@ yarn test
 Launches the test runner in the interactive watch mode.
 
 ```sh
+yarn run storybook
+```
+
+Runs the storybook<br>
+Open [http://localhost:9001](http://localhost:9001) to view it in the browser.
+
+The page will reload if you make edits.
+
+```sh
 yarn run coverage
 ```
 
