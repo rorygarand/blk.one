@@ -15,7 +15,7 @@ class Main extends Component {
         <Header name="EOS User" />
         <Content>
           <Wrapper>
-            <Row>
+            <Row height={50}>
               <span>most recent blocks</span>
               <Button title="load" />
             </Row>

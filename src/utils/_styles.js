@@ -6,9 +6,9 @@ const Row = styled.div`
   border-bottom: 1px solid ${variables.almostWhite};
   display: flex;
   flex-direction: row;
-  height: ${variables.row.height}px;
+  height: ${({ height }) => height || 30}px;
   justify-content: space-between;
-  line-height: ${variables.row.height}px;
+  line-height: ${({ height }) => height || 30}px;
   padding: 0 8px;
   text-transform: uppercase;
 `;
