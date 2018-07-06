@@ -51,3 +51,4 @@ const block = (state = initialState, { payload, type }) => {
 };
 
 export default block;
+export { block, initialState };
