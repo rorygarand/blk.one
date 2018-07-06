@@ -47,4 +47,5 @@ const Section = styled.section`
   margin: -8px;
   padding: 0 8px;
   width: 100%;
+  z-index: 2;
 `;
