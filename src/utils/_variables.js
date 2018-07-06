@@ -3,6 +3,7 @@ const variables = {
   almostWhite: '#efefef',
   darkGrey: '#605c6d',
   lightGrey: '#d8d8d8',
+  blue: '#667d9a',
   purple: '#443f54',
 
   // header
