@@ -1,4 +1,4 @@
-const styles = {
+const variables = {
   // colors
   almostWhite: '#efefef',
   darkGrey: '#605c6d',
@@ -17,4 +17,4 @@ const styles = {
   }
 };
 
-export default styles;
+export default variables;
