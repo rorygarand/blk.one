@@ -20,6 +20,7 @@ import banner from '../../images/banner.jpg';
 
 class Main extends Component {
   static defaultProps = {
+    blocks: [],
     isError: false,
     isLoading: true
   };
