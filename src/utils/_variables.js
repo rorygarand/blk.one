@@ -9,6 +9,12 @@ const variables = {
   header: {
     innerHeight: 48,
     outerHeight: 80
+  },
+
+  // row
+  row: {
+    large: 50,
+    small: 30
   }
 };
 
