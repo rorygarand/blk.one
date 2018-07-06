@@ -9,9 +9,13 @@ import { styles, variables } from '../../utils';
 import { block as blockSchema } from '../../schema/blocks';
 
 class Entry extends Component {
+  static defaultProps = {
+    odd: false
+  };
+
   static propTypes = {
     block: blockSchema.isRequired,
-    odd: PropTypes.bool.isRequired
+    odd: PropTypes.bool
   };
 
   state = {
