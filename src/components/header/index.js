@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import eos from '../../images/eos.svg';
 
-import { styles } from '../../utils';
+import { variables } from '../../utils';
 
 const Header = ({ name }) => (
   <Section id="header">
@@ -26,11 +26,11 @@ Header.propTypes = {
 export default Header;
 
 const Div = styled.div`
-  color: ${styles.darkGrey};
+  color: ${variables.darkGrey};
   display: flex;
-  height: ${styles.header.innerHeight}px;
+  height: ${variables.header.innerHeight}px;
   justify-content: space-between;
-  line-height: ${styles.header.innerHeight}px;
+  line-height: ${variables.header.innerHeight}px;
   max-width: 1170px;
   padding: 0 15px;
   text-transform: uppercase;
@@ -40,9 +40,9 @@ const Div = styled.div`
 const Section = styled.section`
   align-items: center;
   background-color: white;
-  border-bottom: 1px solid ${styles.lightGrey};
+  border-bottom: 1px solid ${variables.lightGrey};
   display: flex;
-  height: ${styles.header.outerHeight}px;
+  height: ${variables.header.outerHeight}px;
   justify-content: center;
   margin: -8px;
   padding: 0 8px;

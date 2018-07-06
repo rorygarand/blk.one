@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button, Header } from '../../components';
 
 import banner from '../../images/banner.jpg';
-import { styles } from '../../utils';
+import { variables } from '../../utils';
 
 class Main extends Component {
   render() {
@@ -33,7 +33,7 @@ const Content = styled.section`
   position: absolute;
   overflow: auto;
   justify-content: center;
-  top: ${styles.header.outerHeight - 8}px;
+  top: ${variables.header.outerHeight - 8}px;
   width: 100%;
 
   &::-webkit-scrollbar {
@@ -62,12 +62,12 @@ const Content = styled.section`
 `;
 
 const Row = styled.div`
-  border-bottom: 1px solid ${styles.almostWhite};
+  border-bottom: 1px solid ${variables.almostWhite};
   display: flex;
   flex-direction: row;
-  height: ${styles.row.height}px;
+  height: ${variables.row.height}px;
   justify-content: space-between;
-  line-height: ${styles.row.height}px;
+  line-height: ${variables.row.height}px;
   padding: 0 8px;
   text-transform: uppercase;
 `;
@@ -90,7 +90,7 @@ const View = styled.div`
 const Wrapper = styled.div`
   background-color: white;
   border-radius: 2px;
-  box-shadow: ${styles.lightGrey} 0px 0px 1px 0px;
+  box-shadow: ${variables.lightGrey} 0px 0px 1px 0px;
   flex: 0.7;
   min-height: 80%;
 `;

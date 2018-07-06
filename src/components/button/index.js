@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { styles } from '../../utils';
+import { variables } from '../../utils';
 
 const Button = ({ disabled, title, onClick }) => {
   const handleClick = !disabled ? onClick : () => {};
@@ -42,7 +42,7 @@ const Wrapper = styled.button`
   transition: all 200ms cubic-bezier(0.39, 0.5, 0.15, 1.36);
 
   &:disabled {
-    color: ${styles.lightGrey};
+    color: ${variables.lightGrey};
     font-style: italic;
   }
 
@@ -52,6 +52,6 @@ const Wrapper = styled.button`
 
   &:hover:enabled {
     color: rgba(255, 255, 255, 0.85);
-    box-shadow: ${styles.purple} 0 0px 0px 40px inset;
+    box-shadow: ${variables.purple} 0 0px 0px 40px inset;
   }
 `;
