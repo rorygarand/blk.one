@@ -134,8 +134,8 @@ class EosMock {
     ref_block_prefix: 2708824222
   };
 
-  static getActions(params) {
-    return 9;
+  static getActions() {
+    return { last_irreversible_block: 9 };
   }
 
   static getBlock(num) {
