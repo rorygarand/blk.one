@@ -5,7 +5,7 @@ import {
   GET_BLOCKS_ERROR,
   GET_BLOCKS_LOADING,
   GET_BLOCKS_SUCCESS
-} from '../../actions/block';
+} from '../../../actions/block';
 
 const initialState = {
   currentNums: [],
