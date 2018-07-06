@@ -7,7 +7,7 @@ import {
 } from '../actions/block';
 
 function* getBlocks({ payload = {} }) {
-  payload.endpoint = '/test';
+  payload.eos = true;
 
   yield put({
     types: [GET_BLOCKS_SUCCESS, GET_BLOCKS_ERROR, GET_BLOCKS_LOADING],
