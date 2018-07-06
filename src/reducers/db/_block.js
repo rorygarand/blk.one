@@ -30,15 +30,17 @@ const block = (state = initialState, { payload, type }) => {
       };
     }
     case GET_BLOCKS_SUCCESS: {
-      const byId = {
-        ...state.byId,
-        ...keyBy(payload.data, 'id')
+      // indexing by `block_num` since it's a little
+      // easier to read than by `id`
+      const byNum = {
+        ...state.byNum,
+        ...keyBy(payload.data, 'block_num')
       };
-      const nextState = dotProp.merge(state, 'byId', byId);
-      const currentIds = payload.data.map(({ id }) => id);
+      const nextState = dotProp.merge(state, 'byNum', byNum);
+      const currentNums = payload.data.map(({ block_num }) => block_num);
       return {
         ...nextState,
-        currentIds,
+        currentNums,
         isLoading: false
       };
     }
