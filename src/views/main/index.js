@@ -6,10 +6,10 @@ import { styles, variables } from '../../utils';
 
 import banner from '../../images/banner.jpg';
 
-const { Row } = styles;
-
 class Main extends Component {
   render() {
+    const { Row } = styles;
+
     return (
       <View id="main">
         <Header name="EOS User" />
