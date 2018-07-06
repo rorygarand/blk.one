@@ -143,9 +143,9 @@ class EosMock {
     let response;
 
     if (odd) {
-      response = blockZeroActions;
+      response = this.blockZeroActions;
     } else {
-      response = blockNonZeroActions;
+      response = this.blockNonZeroActions;
     }
 
     return response;
