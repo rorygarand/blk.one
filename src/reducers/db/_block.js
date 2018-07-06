@@ -8,7 +8,8 @@ import {
 } from '../../actions/block';
 
 const initialState = {
-  byId: {},
+  currentNums: [],
+  byNum: {},
   isError: false,
   isLoading: true
 };
