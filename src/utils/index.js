@@ -1,3 +1,4 @@
+import styles from './_styles';
 import variables from './_variables';
 
-export { variables };
+export { styles, variables };

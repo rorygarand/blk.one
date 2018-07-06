@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { Button, Header } from '../../components';
+import { styles, variables } from '../../utils';
 
 import banner from '../../images/banner.jpg';
-import { variables } from '../../utils';
+
+const { Row } = styles;
 
 class Main extends Component {
   render() {
@@ -59,17 +61,6 @@ const Content = styled.section`
     border-radius: 10px;
     margin: 4px;
   }
-`;
-
-const Row = styled.div`
-  border-bottom: 1px solid ${variables.almostWhite};
-  display: flex;
-  flex-direction: row;
-  height: ${variables.row.height}px;
-  justify-content: space-between;
-  line-height: ${variables.row.height}px;
-  padding: 0 8px;
-  text-transform: uppercase;
 `;
 
 const View = styled.div`
