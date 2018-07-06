@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Entry from './index';
 
-import EosMock from '../../middleware/api/index.test.js';
+import EosMock from '../../middleware/api/eos.mock.js';
 
 const blockZeroActions = EosMock.getBlock(0);
 const blockNonZeroActions = EosMock.getBlock(1);
