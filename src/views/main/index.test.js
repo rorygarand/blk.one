@@ -4,8 +4,8 @@ import { Main } from './index';
 
 import EosMock from '../../middleware/api/eos.mock.js';
 
-const blockZeroActions = EosMock.getBlock(0);
-const blockNonZeroActions = EosMock.getBlock(1);
+const LENGTH = 10;
+const blocks = EosMock.getBlocksWithLengthOf(LENGTH);
 
 describe('Main', () => {
   it('renders without crashing', () => {
@@ -24,16 +24,10 @@ describe('Main', () => {
   });
 
   it('renders with blocks', () => {
-    const blocks = [];
-    const length = 10;
-    for (let i = 0; i < length / 2; i++) {
-      blocks.push(blockZeroActions);
-      blocks.push(blockNonZeroActions);
-    }
     const component = shallow(
       <Main getBlocks={jest.fn()} blocks={blocks} isLoading={false} />
     );
-    expect(component.find('#ready').children().length).toBe(length);
+    expect(component.find('#ready').children().length).toBe(LENGTH);
   });
 
   it('gets blocks on mount', () => {

@@ -150,6 +150,14 @@ class EosMock {
 
     return response;
   }
+
+  static getBlocksWithLengthOf(length) {
+    const blocks = [];
+    for (let i = 0; i < length; i++) {
+      blocks.push(this.getBlock(i));
+    }
+    return blocks;
+  }
 }
 
 export default EosMock;

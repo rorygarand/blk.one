@@ -9,8 +9,7 @@ import {
   GET_BLOCKS_SUCCESS
 } from '../../../actions/block';
 
-const blockZeroActions = EosMock.getBlock(0);
-const blockNonZeroActions = EosMock.getBlock(1);
+const data = EosMock.getBlocksWithLengthOf(10);
 
 describe('block reducer', () => {
   it('should return initial state', () => {
@@ -31,12 +30,8 @@ describe('block reducer', () => {
 
   it('should handle GET_BLOCKS_SUCCESS', () => {
     let currentNums = [];
-    let data = [];
-    for (let i = 0; i < 5; i++) {
-      currentNums.push(blockZeroActions.block_num);
-      currentNums.push(blockNonZeroActions.block_num);
-      data.push(blockZeroActions);
-      data.push(blockNonZeroActions);
+    for (let i = 0; i < data.length; i++) {
+      currentNums.push(data[i].block_num);
     }
 
     const action = { type: GET_BLOCKS_SUCCESS, payload: { data } };
