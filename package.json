@@ -47,7 +47,8 @@
       "!src/utils/*",
       "!src/views/index.js",
       "!src/**/stories.js",
-      "!src/**/story.js"
+      "!src/**/story.js",
+      "!src/**/*.mock.js"
     ]
   },
   "lint-staged": {
