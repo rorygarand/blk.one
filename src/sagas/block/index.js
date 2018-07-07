@@ -4,7 +4,7 @@ import {
   GET_BLOCKS_ERROR,
   GET_BLOCKS_LOADING,
   GET_BLOCKS_SUCCESS
-} from '../actions/block';
+} from '../../actions/block';
 
 function* getBlocks({ payload = {} }) {
   payload.eos = true;
@@ -18,3 +18,4 @@ function* getBlocks({ payload = {} }) {
 export default function* blockSaga() {
   yield takeLatest(GET_BLOCKS, getBlocks);
 }
+export { blockSaga, getBlocks };
