@@ -158,6 +158,26 @@ class EosMock {
     }
     return blocks;
   }
+
+  static getInfo() {
+    return {
+      block_cpu_limit: 199900,
+      block_net_limit: 1048576,
+      chain_id:
+        'aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906',
+      head_block_id:
+        '0045d1bd8ed58431f4ef28ed5f44a45135e8dd3f4ecaa476ecc1aff09e0dd477',
+      head_block_num: 4575677,
+      head_block_producer: 'helloeoscnbp',
+      head_block_time: '2018-07-07T04:03:10.000',
+      last_irreversible_block_id:
+        '0045d070118672ba278290506aa291fdf70edf02b072c48d2d6d26612bf29472',
+      last_irreversible_block_num: 9,
+      server_version: '36a043c5',
+      virtual_block_cpu_limit: 200000000,
+      virtual_block_net_limit: 1048576000
+    };
+  }
 }
 
 export default EosMock;
