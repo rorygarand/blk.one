@@ -52,15 +52,17 @@ class Main extends Component {
               <Button disabled={isLoading} title="load" onClick={getBlocks} />
             </Row>
             {isLoading && (
-              <Center>
+              <Center id="loading">
                 <Loader />loading
               </Center>
             )}
             {isError && (
-              <Center>Error retrieving blocks. Please try again later.</Center>
+              <Center id="error">
+                Error retrieving blocks. Please try again later.
+              </Center>
             )}
             {isReady && (
-              <div>
+              <div id="ready">
                 {blocks.map((block, i) => (
                   <Entry key={block.id} block={block} odd={i % 2 === 0} />
                 ))}
@@ -91,6 +93,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main);
+export { Main };
 
 const Center = styled.div`
   align-items: center;
