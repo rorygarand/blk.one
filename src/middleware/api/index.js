@@ -1,8 +1,22 @@
 import EOS from 'eosjs';
+import isEmpty from 'lodash/isEmpty';
 
 import config from '../../config';
 
-const eos = EOS(config);
+const eosClosure = () => {
+  let eos;
+
+  const init = () => {
+    eos = EOS(config);
+  };
+
+  const get = () => {
+    if (isEmpty(eos)) init();
+    return eos;
+  };
+
+  return get;
+};
 
 const shouldHandle = ({ payload, types }) =>
   types && types.length > 0 && payload.eos;
@@ -12,6 +26,8 @@ const handle = async (action, next) => {
   const [SUCCESS, ERROR, LOADING] = types;
 
   next({ type: LOADING });
+
+  const eos = eosClosure()();
 
   try {
     const { last_irreversible_block: num } = await eos.getActions({
