@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+## Design Decisions
+I felt that some choices I made during development could possibly benefit from a small explanation.
+
+1. `redux`: This project is small enough to not really need a store. However, I ultimately viewed this challenge as a small piece in a larger puzzle. I wanted to approach the requirements with the mindset of allowing anyone to extend the feature set easily in the future.
+2. `styled-components`: I'm a big fan of css-in-js in theory, but in practice this is the only solution I like to use.
+3. `storybook`: I'm more familiar with storybook than styleguidist. I thought it would work well in concert with the unit tests.
+
+## Notes
+1. Try as I might I wasn't able to get 100% test coverage before throwing in the towel. I especially had trouble intercepting http requests with the eosjs library, everything else was fairly small. Maybe if I had more time / less responsibilities...
+2. Thank you for taking time to review this!
+
 ## Getting Started
 
 ```sh
