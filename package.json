@@ -37,6 +37,7 @@
     "collectCoverageFrom": [
       "src/**/*.{js}",
       "!<rootDir>/node_modules/",
+      "!src/config.js",
       "!src/index.js",
       "!src/registerServiceWorker.js",
       "!src/components/index.js",
